@@ -1,17 +1,17 @@
 <?php
 
-function set(string $key,  $value)
+function set(string $key, $value): void
 {
     $fileName = "storage.txt";
     $arrayData = [];
     $arrayData[$key] = $value;
     $array = serialize($arrayData);
-    file_put_contents($fileName,$array,FILE_APPEND);
+    file_put_contents($fileName, $array, FILE_APPEND);
 
     $myArray = file_get_contents($fileName);
     $dataFile = unserialize($myArray);
     foreach ($dataFile as $newKey => $oldValue) {
-        if($newKey === $key) {
+        if ($newKey === $key) {
             $dataFile[$newKey] = $value;
         } else {
             $dataFile[$key] = $value;
@@ -21,20 +21,22 @@ function set(string $key,  $value)
 
 }
 
-set("key1",1111111 );
+set("key1", 1111111);
 set("key2", "value2");
 set("key3", "value3");
 
 
-function get(string $key) {
+function get(string $key)
+{
     $fileName = "storage.txt";
     $myArray = file_get_contents($fileName);
     $dataFileFile = unserialize($myArray);
     foreach ($dataFileFile as $searchKey => $value) {
-        if($searchKey === $key) {
+        if ($searchKey === $key) {
             return $value;
         }
     }
+    return '';
 }
 
 var_dump(get("key1"));
