@@ -36,7 +36,7 @@ class ScheduleTest extends TestCase
             [
                 'station' => 'Омск',
                 'arrivalDateTime' => '2022-10-14 23:20:00',
-                'departureDateTime' => '2022-10-14 23:36:00',
+                'departureDateTime' => null,
                 'localTimeZoneOffset' => 6
             ],
         ];
@@ -71,7 +71,7 @@ class ScheduleTest extends TestCase
             [
                 'station' => 'Омск',
                 'arrivalDateTime' => '2022-10-15 02:20:00',
-                'departureDateTime' => '2022-10-15 02:36:00',
+                'departureDateTime' => null,
                 'localTimeZoneOffset' => 6
             ],
         ], $result);
