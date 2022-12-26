@@ -46,4 +46,27 @@ class RegexTest extends TestCase
 
         $this->assertEquals('test test test', $res);
     }
+
+    public function testCountLetters()
+    {
+        $str = 'GivE somEone the benEfit of the doubt';
+        $res = countLetters($str, 'e');
+
+        $this->assertEquals(7, $res);
+
+        $res = countLetters($str, 'E');
+
+        $this->assertEquals(7, $res);
+    }
+
+    public function testExtractWords()
+    {
+        $res = extractWords('test123');
+
+        $this->assertEquals(['test'], $res);
+
+        $res = extractWords('one123two_three');
+
+        $this->assertEquals(['one', 'two', 'three'], $res);
+    }
 }

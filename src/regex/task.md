@@ -39,7 +39,7 @@ countLetters($str, 'E'); // => 7
 7. Функция для извлечения слов английского алфавита
 ```php
 extractWords('test123'); // => ['test']
-extractWord('one123two_three'); // => ['one', 'two', 'three']
+extractWords('one123two_three'); // => ['one', 'two', 'three']
 ```
 
 ### Отрицательные классы
