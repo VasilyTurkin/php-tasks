@@ -38,4 +38,12 @@ class RegexTest extends TestCase
 
         $this->assertEquals([123, 3, 0, 786775], $res);
     }
+
+    public function testTrimSpaces()
+    {
+        $str = 'test    test       test';
+        $res = trimSpaces($str); // => 'test test test'
+
+        $this->assertEquals('test test test', $res);
+    }
 }

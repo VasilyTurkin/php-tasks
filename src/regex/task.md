@@ -16,7 +16,7 @@ replaceTest($str, ''); // => 'message with word '
 3. Функция для удаления всех символов кроме букв и цифр
 ```php
 $str = '&.  some message 1234, with numbers -=+-??';
-clearString($str); // => 'some message 1234 with numbers'
+clearString($str); // => 'somemessage1234withnumbers'
 ```
 4. Функция для выборки всех номеров из строки. Ответ - массив
 ```php
@@ -26,7 +26,7 @@ extractNumbers($str); // => [123, 3, 0, 786775]
 5. Функция для удаления лишних пробелов
 ```php
 $str = 'test    test       test';
-timpSpaces($str); // => 'test test test'
+trimSpaces($str); // => 'test test test'
 ```
 
 ### Альтернативы
