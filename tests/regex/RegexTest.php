@@ -30,4 +30,12 @@ class RegexTest extends TestCase
 
         $this->assertEquals('some message   1234 with numbers', $res);
     }
+
+    public function testExtractNumbers()
+    {
+        $str = 'Get 123 something 3out of your 0 system786775';
+        $res = extractNumbers($str);
+
+        $this->assertEquals([123, 3, 0, 786775], $res);
+    }
 }
