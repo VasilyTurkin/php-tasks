@@ -24,7 +24,8 @@ $str = '&.  some message 1234, with numbers -=+-??';
 
 function clearString(string $str): string
 {
-    return preg_replace('/([^a-zA-Z0-9]+)/', ' ', $str);
+    $pattern = '/[^a-zA-Z0-9 ]+/';
+    return trim(preg_replace($pattern, '', $str));
 }
 
 // Задача 4

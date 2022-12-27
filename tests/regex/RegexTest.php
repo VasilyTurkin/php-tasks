@@ -28,6 +28,6 @@ class RegexTest extends TestCase
         $str = '&.  some message   1234, with numbers -=+-??';
         $res = clearString($str);
 
-        $this->assertEquals('some message   1234, with numbers', $res);
+        $this->assertEquals('some message   1234 with numbers', $res);
     }
 }
