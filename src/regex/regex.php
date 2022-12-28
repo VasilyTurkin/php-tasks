@@ -32,11 +32,13 @@ function clearString(string $str): string
 
 $str = 'Get 123 something 3out of your 0 system786775';
 
-function extractNumbers(string $str): array
+function extractNumbers(string $str)
+
 {
     preg_match_all('/\d+/', $str, $arrNumbers);
-    return $arrNumbers;
+    return $arrNumbers[0];
 }
+
 
 // Задача 5
 
@@ -44,7 +46,7 @@ $str = 'test    test       test';
 
 function trimSpaces(string $str): string
 {
-    return preg_replace('/\s+/', '', $str);
+    return preg_replace('/\s+/', ' ', $str);
 }
 
 // Задача 6
@@ -63,8 +65,23 @@ $str = 'one123two_three';
 function extractWords(string $str): mixed
 {
     preg_match_all('/[a-z][[:alpha:]]+/is', $str, $arr);
-    return $arr;
+    return $arr[0];
 }
 
+// Задача 8
 
+$str = 'MOSCOW_TIME_ZONE';
 
+function transformToCamelCase(string $str)
+{
+    $arr = [];
+
+    $str = strtolower($str);
+
+    preg_match_all('/[a-z]+/', $str, $matches);
+
+    foreach ($matches[0] as $item) {
+        $arr[] = ucfirst($item);
+    }
+    return lcfirst(implode('_', ($arr)));
+}
