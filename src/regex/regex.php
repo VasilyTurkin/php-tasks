@@ -11,7 +11,7 @@ function countWord(string $str, string $word): int
 
 // Задача 2
 
-$str = 'testmessage with testword test';
+$str = 'test message with testword test';
 
 function replaceTest(string $str, string $symbol): string
 {
@@ -96,3 +96,12 @@ function removeHtmlTags(string $str): string
 
 // Задача 10
 
+function getPhone(string $str): mixed
+{
+    $pattern = '/tel\.\s*[0-9]+ | tel\s*[0-9]+/xi';
+
+    preg_match_all($pattern, $str, $matches);
+
+    return implode('', $matches[0]);
+
+}

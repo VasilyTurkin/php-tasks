@@ -89,4 +89,16 @@ class RegexTest extends TestCase
 
     }
 
+    public function testgetPhone()
+    {
+        $res = getPhone('Some address, tel. 129800');
+
+        $this->assertEquals('tel. 129800', $res);
+
+        $res = getPhone('tel 129838, some address');
+
+        $this->assertEquals('tel 129838', $res);
+
+    }
+
 }
