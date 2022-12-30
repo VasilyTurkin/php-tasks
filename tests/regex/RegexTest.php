@@ -101,4 +101,16 @@ class RegexTest extends TestCase
 
     }
 
+    public function testIsCharRepeat()
+    {
+        $res = isCharRepeat('test tttest', 't', 6);
+
+        $this->assertEquals(true, $res);
+
+        $res = isCharRepeat('Hello', 'l', 3);
+
+        $this->assertEquals(false, $res);
+
+    }
+
 }

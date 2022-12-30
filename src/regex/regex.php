@@ -105,3 +105,13 @@ function getPhone(string $str): mixed
     return implode('', $matches[0]);
 
 }
+
+// Задача 11
+
+function isCharRepeat(string $str, string $letter, int $int) : bool
+{
+    $count =  preg_match_all('/'.$letter.'/', $str);
+
+    return $count == $int;
+
+}
