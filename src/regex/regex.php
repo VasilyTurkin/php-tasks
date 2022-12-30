@@ -70,8 +70,6 @@ function extractWords(string $str): mixed
 
 // Задача 8
 
-$str = 'MOSCOW_TIME_ZONE';
-
 function transformToCamelCase(string $str)
 {
     $arr = [];
@@ -85,3 +83,16 @@ function transformToCamelCase(string $str)
     }
     return lcfirst(implode('_', ($arr)));
 }
+
+// Задача 9
+
+function removeHtmlTags(string $str): string
+{
+    $pattern = '/<[^>]+>/';
+
+    return preg_replace($pattern, '', $str);
+
+}
+
+// Задача 10
+

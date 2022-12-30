@@ -69,4 +69,24 @@ class RegexTest extends TestCase
 
         $this->assertEquals(['one', 'two', 'three'], $res);
     }
+
+    public function testTransformToCamelCase()
+    {
+        $res = transformToCamelCase('MOSCOW_TIME_ZONE');
+
+        $this->assertEquals('moscow_Time_Zone', $res);
+
+        $res = transformToCamelCase('start_date_time');
+
+        $this->assertEquals('start_Date_Time', $res);
+    }
+
+    public function testRemoveHtmlTags()
+    {
+        $res = removeHtmlTags('<strong>Header</strong><i>123</i><div>block</div>');
+
+        $this->assertEquals('Header123block', $res);
+
+    }
+
 }
