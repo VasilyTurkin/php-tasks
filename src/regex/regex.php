@@ -108,10 +108,11 @@ function getPhone(string $str): mixed
 
 // Задача 11
 
-function isCharRepeat(string $str, string $letter, int $int) : bool
+function isCharRepeat(string $str, string $letter, int $matchCount): bool
 {
-    $count =  preg_match_all('/'.$letter.'/', $str);
+    $pattern = "/$letter{" . $matchCount . '}/';
 
-    return $count == $int;
-
+    return (bool)preg_match_all($pattern, $str);
 }
+
+

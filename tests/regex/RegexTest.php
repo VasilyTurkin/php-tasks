@@ -103,7 +103,7 @@ class RegexTest extends TestCase
 
     public function testIsCharRepeat()
     {
-        $res = isCharRepeat('test tttest', 't', 6);
+        $res = isCharRepeat('test tttest', 't', 3);
 
         $this->assertEquals(true, $res);
 
