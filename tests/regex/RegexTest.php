@@ -86,7 +86,6 @@ class RegexTest extends TestCase
         $res = removeHtmlTags('<strong>Header</strong><i>123</i><div>block</div>');
 
         $this->assertEquals('Header123block', $res);
-
     }
 
     public function testgetPhone()
@@ -98,7 +97,6 @@ class RegexTest extends TestCase
         $res = getPhone('tel 129838, some address');
 
         $this->assertEquals('tel 129838', $res);
-
     }
 
     public function testIsCharRepeat()
@@ -110,13 +108,10 @@ class RegexTest extends TestCase
         $res = isCharRepeat('Hello', 'l', 3);
 
         $this->assertEquals(false, $res);
-
     }
 
     public function testHasNumber()
     {
-
-
         $res = hasNumber('test 123');
 
         $this->assertEquals(true, $res);
@@ -125,5 +120,19 @@ class RegexTest extends TestCase
 
         $this->assertEquals(false, $res);
 
+    }
+    public function testIsAlpaNumeric()
+    {
+        $res = isAlpaNumeric('test123');
+
+        $this->assertEquals(true, $res);
+
+        $res = isAlpaNumeric('test 123');
+
+        $this->assertEquals(false, $res);
+
+        $res = isAlpaNumeric('  test123');
+
+        $this->assertEquals(false, $res);
     }
 }

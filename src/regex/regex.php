@@ -94,7 +94,6 @@ function removeHtmlTags(string $str): string
 {
 
     return preg_replace('/<[^>]+>/', '', $str);
-
 }
 
 // Задача 10
@@ -107,7 +106,6 @@ function getPhone(string $str): mixed
     preg_match_all($pattern, $str, $matches);
 
     return implode('', $matches[0]);
-
 }
 
 // Задача 11
@@ -121,12 +119,18 @@ function isCharRepeat(string $str, string $letter, int $matchCount): bool
 
 // Задача 12
 
-function hasNumber(string $str,)
-
+function hasNumber(string $str,): bool
 {
     $pattern = '/\b\d{3,5}\b/';
 
     return (bool)preg_match_all($pattern, $str);
-
 }
 
+// Задача 13
+
+function isAlpaNumeric(string $str): bool
+{
+    $pattern = '/^\w+$/';
+
+    return (bool)preg_match_all($pattern, $str);
+}
