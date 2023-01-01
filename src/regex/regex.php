@@ -33,9 +33,11 @@ function clearString(string $str): string
 $str = 'Get 123 something 3out of your 0 system786775';
 
 function extractNumbers(string $str)
-
 {
+    $arrNumbers = [];
+
     preg_match_all('/\d+/', $str, $arrNumbers);
+
     return $arrNumbers[0];
 }
 
@@ -64,6 +66,8 @@ $str = 'one123two_three';
 
 function extractWords(string $str): mixed
 {
+    $arr = [];
+
     preg_match_all('/[a-z][[:alpha:]]+/is', $str, $arr);
     return $arr[0];
 }
@@ -72,25 +76,24 @@ function extractWords(string $str): mixed
 
 function transformToCamelCase(string $str)
 {
-    $arr = [];
-
+    $matches = [];
     $str = strtolower($str);
-
     preg_match_all('/[a-z]+/', $str, $matches);
 
+    $arr = [];
     foreach ($matches[0] as $item) {
         $arr[] = ucfirst($item);
     }
-    return lcfirst(implode('_', ($arr)));
+
+    return lcfirst(implode('', ($arr)));
 }
 
 // Задача 9
 
 function removeHtmlTags(string $str): string
 {
-    $pattern = '/<[^>]+>/';
 
-    return preg_replace($pattern, '', $str);
+    return preg_replace('/<[^>]+>/', '', $str);
 
 }
 
@@ -98,7 +101,8 @@ function removeHtmlTags(string $str): string
 
 function getPhone(string $str): mixed
 {
-    $pattern = '/tel\.\s*[0-9]+ | tel\s*[0-9]+/xi';
+    $matches = [];
+    $pattern = '/tel\.?\s\d+/i';
 
     preg_match_all($pattern, $str, $matches);
 
@@ -115,4 +119,14 @@ function isCharRepeat(string $str, string $letter, int $matchCount): bool
     return (bool)preg_match_all($pattern, $str);
 }
 
+// Задача 12
+
+function hasNumber(string $str,)
+
+{
+    $pattern = '/\b\d{3,5}\b/';
+
+    return (bool)preg_match_all($pattern, $str);
+
+}
 

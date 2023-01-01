@@ -74,11 +74,11 @@ class RegexTest extends TestCase
     {
         $res = transformToCamelCase('MOSCOW_TIME_ZONE');
 
-        $this->assertEquals('moscow_Time_Zone', $res);
+        $this->assertEquals('moscowTimeZone', $res);
 
         $res = transformToCamelCase('start_date_time');
 
-        $this->assertEquals('start_Date_Time', $res);
+        $this->assertEquals('startDateTime', $res);
     }
 
     public function testRemoveHtmlTags()
@@ -113,4 +113,17 @@ class RegexTest extends TestCase
 
     }
 
+    public function testHasNumber()
+    {
+
+
+        $res = hasNumber('test 123');
+
+        $this->assertEquals(true, $res);
+
+        $res = hasNumber('123456');
+
+        $this->assertEquals(false, $res);
+
+    }
 }
