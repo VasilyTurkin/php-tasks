@@ -134,3 +134,26 @@ function isAlpaNumeric(string $str): bool
 
     return (bool)preg_match_all($pattern, $str);
 }
+
+// Задача 14
+
+function parseParams(string $url): array
+{
+    $matches = [];
+    $pattern = '/\?(.*?)$/';
+    preg_match_all($pattern, $url, $matches);
+
+    if(!isset($matches[1][0])){
+        return [];
+    }
+
+    $args = explode('&', $matches[1][0]);
+    $result = [];
+    foreach ($args as $arg) {
+        $matches = [];
+        preg_match_all('/(\w+)=(.*)/', $arg, $matches);
+        $result[$matches[1][0]] = $matches[2][0];
+    }
+
+    return $result;
+}

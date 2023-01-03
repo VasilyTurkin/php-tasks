@@ -121,6 +121,7 @@ class RegexTest extends TestCase
         $this->assertEquals(false, $res);
 
     }
+
     public function testIsAlpaNumeric()
     {
         $res = isAlpaNumeric('test123');
@@ -134,5 +135,28 @@ class RegexTest extends TestCase
         $res = isAlpaNumeric('  test123');
 
         $this->assertEquals(false, $res);
+    }
+
+    public function testParseParams()
+    {
+        $res = parseParams('tutu.ru/poezda?from_date=20.10.2022&to_date=10.11.2022&train_number=120');
+
+        $this->assertEquals([
+            'from_date' => '20.10.2022',
+            'to_date' => '10.11.2022',
+            'train_number' => '120',
+        ], $res);
+
+        $res = parseParams('tutu.ru/poezda');
+
+        $this->assertEquals([], $res);
+
+        $res = parseParams('tutu.ru/poezda?name=&age=10');
+
+        $this->assertEquals([
+            'name' => '',
+            'age' => '10',
+        ], $res);
+
     }
 }
