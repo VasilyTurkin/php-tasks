@@ -143,7 +143,7 @@ function parseParams(string $url): array
     $pattern = '/\?(.*?)$/';
     preg_match_all($pattern, $url, $matches);
 
-    if(!isset($matches[1][0])){
+    if (!isset($matches[1][0])) {
         return [];
     }
 
@@ -156,4 +156,12 @@ function parseParams(string $url): array
     }
 
     return $result;
+}
+
+// Задача 15
+
+function isValidatePhoneNumber(string $str)
+{
+    return (bool)preg_match_all('/^\+7\d{10}+$/',$str);
+
 }

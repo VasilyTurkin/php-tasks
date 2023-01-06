@@ -159,4 +159,18 @@ class RegexTest extends TestCase
         ], $res);
 
     }
+    public function testIsValidatePhoneNumber()
+    {
+        $res = isValidatePhoneNumber('+79131502349');
+
+        $this->assertEquals(true, $res);
+
+        $res = isValidatePhoneNumber('+791315023409');
+
+        $this->assertEquals(false, $res);
+
+        $res = isValidatePhoneNumber('+89131502349');
+
+        $this->assertEquals(false, $res);
+    }
 }
