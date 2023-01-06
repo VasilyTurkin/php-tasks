@@ -2,8 +2,6 @@
 
 // Задача 1
 
-$str = 'message with and, and another and';
-
 function countWord(string $str, string $word): int
 {
     return preg_match_all('/' . $word . '/', $str);
@@ -11,16 +9,12 @@ function countWord(string $str, string $word): int
 
 // Задача 2
 
-$str = 'test message with testword test';
-
 function replaceTest(string $str, string $symbol): string
 {
     return preg_replace('/test/', $symbol, $str);
 }
 
 // Задача 3
-
-$str = '&.  some message 1234, with numbers -=+-??';
 
 function clearString(string $str): string
 {
@@ -30,21 +24,16 @@ function clearString(string $str): string
 
 // Задача 4
 
-$str = 'Get 123 something 3out of your 0 system786775';
-
 function extractNumbers(string $str)
 {
-    $arrNumbers = [];
+    $partsNumbers = [];
 
-    preg_match_all('/\d+/', $str, $arrNumbers);
+    preg_match_all('/\d+/', $str, $partsNumbers);
 
-    return $arrNumbers[0];
+    return $partsNumbers[0];
 }
 
-
 // Задача 5
-
-$str = 'test    test       test';
 
 function trimSpaces(string $str): string
 {
@@ -53,8 +42,6 @@ function trimSpaces(string $str): string
 
 // Задача 6
 
-$str = 'GivE somEone the benEfit of the doubt';
-
 function countLetters($str, $letter): string
 {
     return preg_match_all('/' . $letter . '/i', $str);
@@ -62,30 +49,28 @@ function countLetters($str, $letter): string
 
 // Задача 7
 
-$str = 'one123two_three';
-
 function extractWords(string $str): mixed
 {
-    $arr = [];
+    $parts = [];
 
-    preg_match_all('/[a-z][[:alpha:]]+/is', $str, $arr);
-    return $arr[0];
+    preg_match_all('/[a-zA-Z]+/i', $str, $parts);
+    return $parts[0];
 }
 
 // Задача 8
 
-function transformToCamelCase(string $str)
+function transformToCamelCase(string $str): string
 {
     $matches = [];
     $str = strtolower($str);
     preg_match_all('/[a-z]+/', $str, $matches);
 
-    $arr = [];
+    $parts = [];
     foreach ($matches[0] as $item) {
-        $arr[] = ucfirst($item);
+        $parts[] = ucfirst($item);
     }
 
-    return lcfirst(implode('', ($arr)));
+    return lcfirst(implode('', $parts));
 }
 
 // Задача 9
@@ -98,7 +83,7 @@ function removeHtmlTags(string $str): string
 
 // Задача 10
 
-function getPhone(string $str): mixed
+function getPhone(string $str): string
 {
     $matches = [];
     $pattern = '/tel\.?\s\d+/i';
@@ -119,7 +104,7 @@ function isCharRepeat(string $str, string $letter, int $matchCount): bool
 
 // Задача 12
 
-function hasNumber(string $str,): bool
+function hasNumber(string $str): bool
 {
     $pattern = '/\b\d{3,5}\b/';
 
@@ -128,7 +113,7 @@ function hasNumber(string $str,): bool
 
 // Задача 13
 
-function isAlpaNumeric(string $str): bool
+function isAlphaNumeric(string $str): bool
 {
     $pattern = '/^\w+$/';
 
@@ -160,7 +145,7 @@ function parseParams(string $url): array
 
 // Задача 15
 
-function isValidatePhoneNumber(string $str): bool
+function isValidPhoneNumber(string $str): bool
 {
     return (bool)preg_match_all('/^\+7\d{10}+$/', $str);
 }

@@ -122,17 +122,17 @@ class RegexTest extends TestCase
 
     }
 
-    public function testIsAlpaNumeric()
+    public function testIsAlphaNumeric()
     {
-        $res = isAlpaNumeric('test123');
+        $res = isAlphaNumeric('test123');
 
         $this->assertEquals(true, $res);
 
-        $res = isAlpaNumeric('test 123');
+        $res = isAlphaNumeric('test 123');
 
         $this->assertEquals(false, $res);
 
-        $res = isAlpaNumeric('  test123');
+        $res = isAlphaNumeric('  test123');
 
         $this->assertEquals(false, $res);
     }
@@ -159,17 +159,17 @@ class RegexTest extends TestCase
         ], $res);
 
     }
-    public function testIsValidatePhoneNumber()
+    public function testIsValidPhoneNumber()
     {
-        $res = isValidatePhoneNumber('+79131502349');
+        $res = isValidPhoneNumber('+79131502349');
 
         $this->assertEquals(true, $res);
 
-        $res = isValidatePhoneNumber('+791315023409');
+        $res = isValidPhoneNumber('+791315023409');
 
         $this->assertEquals(false, $res);
 
-        $res = isValidatePhoneNumber('+89131502349');
+        $res = isValidPhoneNumber('+89131502349');
 
         $this->assertEquals(false, $res);
     }
