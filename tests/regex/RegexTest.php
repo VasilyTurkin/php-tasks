@@ -173,4 +173,10 @@ class RegexTest extends TestCase
 
         $this->assertEquals(false, $res);
     }
+    public function testSplitWordsNums()
+    {
+        $res = splitWordsNums('test123word93');
+
+        $this->assertEquals('test 123 word 93', $res);
+    }
 }

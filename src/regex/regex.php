@@ -160,8 +160,18 @@ function parseParams(string $url): array
 
 // Задача 15
 
-function isValidatePhoneNumber(string $str)
+function isValidatePhoneNumber(string $str): bool
 {
-    return (bool)preg_match_all('/^\+7\d{10}+$/',$str);
-
+    return (bool)preg_match_all('/^\+7\d{10}+$/', $str);
 }
+
+// Задача 16
+
+function splitWordsNums(string $str): string
+{
+    $pattern = '/([a-z]+)([0-9]+)/';
+    $replacement = ' $1 $2';
+
+    return ltrim(preg_replace($pattern, $replacement, $str));
+}
+
